@@ -719,7 +719,6 @@ body.light-mode .footer-content {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.5);
-  /* border-top: 1px solid var(--blue); */
 }
 body.light-mode .footer-light-deco {
   color: #1a1e30;
@@ -806,8 +805,8 @@ body.light-mode .footer-e {
   display: flex;
   align-items: center;
   justify-content: center;
-  visibility: hidden; /* Start with visibility hidden */
-  opacity: 0; /* Start with opacity 0 */
+  visibility: hidden;
+  opacity: 0;
   transition: visibility 0s, opacity 0.3s ease;
 }
 
