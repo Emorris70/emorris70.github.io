@@ -672,6 +672,7 @@ body.light-mode .view-project-btn:hover {
 }
 .view-project-btn {
   background-color: #4180f5;
+  color: black;
   border: none;
   border-radius: 5px;
   padding: 5px;
