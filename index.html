@@ -42,7 +42,7 @@
       integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles_min.css" />
   </head>
 
   <body class="light-mode">
@@ -324,7 +324,16 @@
       >
         <h4 class="header-deco">My Projects</h4>
         <div class="p-card-deco p-gradient">
-          <img src="images/no-img.png" class="mp-img" alt="no image" />
+          <img
+            src="images/Home-page.png"
+            srcset="
+              images/Home-page.png 1x,
+              images/Home-page.png 2x,
+              images/Home-page.png 3x
+            "
+            class="mp-img flav"
+            alt="flavFinder preview image"
+          />
           <div class="card-content">
             <h5 class="p-h3-col">FlavFinder</h5>
             <p class="parg-deco">
