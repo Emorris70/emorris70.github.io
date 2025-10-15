@@ -14,6 +14,59 @@ body {
   background-image: radial-gradient(#1a1a1a 1.1px, transparent 1px);
   background-size: 20px 20px;
 }
+/* Hide the caution by default */
+.caution-card {
+  display: none;
+}
+/* Full-screen container to blur background */
+.c-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 900; /* below header, above rest of content */
+  pointer-events: none; /* allows clicks to pass through when hidden */
+  backdrop-filter: none;
+  background: transparent;
+  transition: backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+/* When light mode is on — show blur and card */
+body.light-mode .c-container {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: auto;
+  transition: backdrop-filter 0.4s ease, background 0.4s ease;
+}
+
+/* The actual caution card */
+body.light-mode .caution-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1e30;
+  color: #fff;
+  width: 30%;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 901;
+}
+
+/* Keep header visible above blur overlay */
+header {
+  position: relative;
+  z-index: 1000;
+}
+
+body.light-mode .caution-icon {
+  width: 2.813rem;
+  height: 2.813rem;
+  margin-bottom: 1.25rem;
+}
 .btn::before {
   content: "";
   display: inline-block;
@@ -367,6 +420,8 @@ body.light-mode .p-deco {
 body.light-mode .tech-c-deco {
   color: #1a1e30;
   font-weight: 500;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 body.light-mode .card-1 {
   border: 1px solid #5c7cfa;
@@ -893,7 +948,14 @@ body.light-mode #modal-description {
     transform: translateY(0px);
   }
 }
-
+@media (max-width: 900px) {
+  .caution-card h5 {
+    font-size: 18px;
+  }
+  body.light-mode .caution-card {
+    width: 50%;
+  }
+}
 @media (max-width: 786px) {
   header {
     padding: 1.5rem 2rem;
@@ -1050,6 +1112,19 @@ body.light-mode #modal-description {
   }
   .modal-content {
     width: 75%;
+  }
+  .caution-card h5 {
+    font-size: 16px;
+  }
+  body.light-mode .caution-card {
+    width: 70%;
+  }
+  .caution-icon {
+    width: 2.188rem !important;
+    height: 2.188rem !important;
+  }
+  .caution-card {
+    padding: 24px;
   }
 }
 /* smaller screens */
