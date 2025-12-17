@@ -78,10 +78,12 @@ const listDescription = () => {
     });
   });
 
+  // Closes the modal when the "x" button is clicked.
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("show");
   });
 
+  // Allows the user to click outside the modal to close it.
   window.addEventListener("click", event => {
     if (event.target === modal) {
       modal.classList.remove("show");

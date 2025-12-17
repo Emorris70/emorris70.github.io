@@ -11,7 +11,7 @@ body {
   background-color: #0d1117;
   color: #e6edf3;
   transition: background-color 0.3s, color 0.3s;
-  background-image: radial-gradient(#1a1a1a 1.1px, transparent 1px);
+  background-image: radial-gradient(#1a1a1a 1.5px, transparent 1px);
   background-size: 20px 20px;
 }
 /* Hide the caution by default */
@@ -33,15 +33,15 @@ body {
 }
 
 /* When light mode is on — show blur and card */
-body.light-mode .c-container {
+/* body.light-mode .c-container {
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.25);
   pointer-events: auto;
   transition: backdrop-filter 0.4s ease, background 0.4s ease;
-}
+} */
 
 /* The actual caution card */
-body.light-mode .caution-card {
+/* body.light-mode .caution-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,18 +54,18 @@ body.light-mode .caution-card {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   text-align: center;
   z-index: 901;
+} */
+
+body.light-mode .caution-icon {
+  width: 2.813rem;
+  height: 2.813rem;
+  margin-bottom: 1.25rem;
 }
 
 /* Keep header visible above blur overlay */
 header {
   position: relative;
   z-index: 1000;
-}
-
-body.light-mode .caution-icon {
-  width: 2.813rem;
-  height: 2.813rem;
-  margin-bottom: 1.25rem;
 }
 .btn::before {
   content: "";
@@ -256,128 +256,6 @@ body.light-mode .btn-deco-sec {
     opacity: 1;
   }
 }
-/* About Section */
-.about-sec {
-  padding-top: 20.125rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  transition: all 0.3s ease-in-out;
-}
-.abt-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  background: #0f1319;
-  color: white;
-  max-width: 50rem;
-  width: 100%;
-  overflow: auto;
-  transition: all 0.3s ease-in;
-}
-.spec {
-  max-width: 60rem;
-}
-.icon-wrap {
-  width: 6.25rem;
-  height: 6.25rem;
-  border-radius: 50%;
-  background-color: rgba(15, 19, 25, 0.5);
-  box-shadow: inset -1px 4px 10px 11px rgba(0, 0, 0, 0.25),
-    0 4px 4px rgba(90, 90, 90, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.reverse-abt {
-  flex-direction: row-reverse;
-}
-.abt-img {
-  width: 2.625rem;
-  height: 2.625rem;
-}
-.abt-c-h {
-  font-size: 1.25rem;
-  font-weight: 500;
-  transition: all 0.2s ease-in;
-}
-.abt-c-h:hover {
-  transform: translateX(3px);
-  text-decoration: underline;
-}
-.abt-p {
-  font-size: 0.9rem;
-  margin: 0.2rem 0 0;
-  line-height: 1.4;
-  letter-spacing: 0.2px;
-}
-.gradient-blue {
-  border: 1px solid #1b3188;
-  background: rgba(0, 51, 255, 0.02);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.gradient-blue:hover {
-  box-shadow: 0 0 20px 5px rgba(27, 49, 136, 0.5);
-  transform: translateY(-3px);
-}
-.gradient-purple {
-  border: 1px solid rgba(162, 0, 196, 0.5);
-  background: rgba(162, 0, 196, 0.03);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.gradient-purple:hover {
-  box-shadow: 0 0px 20px 5px rgba(81, 26, 93, 0.5);
-  transform: translateY(-3px);
-}
-.gradient-green {
-  border: 1px solid rgba(45, 216, 195, 0.5);
-  background: rgba(45, 216, 195, 0.03);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.gradient-green:hover {
-  box-shadow: 0 0px 20px 5px rgba(20, 83, 76, 0.25);
-  transform: translateY(-3px);
-}
-body.light-mode .icon-wrap {
-  background: #ebebeb;
-  box-shadow: 0 0 20px 5px rgba(113, 139, 255, 0.2) inset;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
-}
-body.light-mode .abt-b {
-  color: #1a1e30;
-  font-weight: 500;
-}
-body.light-mode .gradient-blue:hover,
-body.light-mode .gradient-purple:hover,
-body.light-mode .gradient-green:hover {
-  transform: translateX(-5px);
-  box-shadow: -15px 21px 4px 0px rgba(0, 0, 0, 0.25);
-}
-:root {
-  --blue: #5c7cfa;
-  --blue-gradient: 90deg, #e9f5ff 0%, #effeff 100%;
-  --purple: #54275d;
-  --purple-gradient: 90deg, #ffebff 0%, #f8f3ff 100%;
-  --green-gradient: 90deg, #e5fff4 0%, #eafffe 100%;
-  --green: #2dd8c3;
-}
-body.light-mode .gradient-blue {
-  border: 1px solid var(--blue);
-  background: linear-gradient(var(--blue-gradient));
-}
-body.light-mode .gradient-purple {
-  background: linear-gradient(var(--purple-gradient));
-}
-body.light-mode .gradient-green {
-  border: 1px solid var(--green);
-}
 /* Skills */
 .skill-sec {
   display: flex;
@@ -420,8 +298,7 @@ body.light-mode .p-deco {
 body.light-mode .tech-c-deco {
   color: #1a1e30;
   font-weight: 500;
-  pointer-events: none;
-  cursor: not-allowed;
+  pointer-events: auto;
 }
 body.light-mode .card-1 {
   border: 1px solid #5c7cfa;
@@ -644,9 +521,7 @@ body.light-mode .card-h:hover {
   padding: 5px;
 }
 body.light-mode .list-col li:hover {
-  background-color: #e4e4e4a9;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background-color: #ffffffa9;
 }
 /* Project Section */
 body.light-mode .header-deco {
