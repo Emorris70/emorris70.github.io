@@ -14,58 +14,10 @@ body {
   background-image: radial-gradient(#1a1a1a 1.5px, transparent 1px);
   background-size: 20px 20px;
 }
-/* Hide the caution by default */
-.caution-card {
-  display: none;
-}
-/* Full-screen container to blur background */
-.c-container {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 900; /* below header, above rest of content */
-  pointer-events: none; /* allows clicks to pass through when hidden */
-  backdrop-filter: none;
-  background: transparent;
-  transition: backdrop-filter 0.3s ease, background 0.3s ease;
-}
-
-/* When light mode is on — show blur and card */
-/* body.light-mode .c-container {
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.25);
-  pointer-events: auto;
-  transition: backdrop-filter 0.4s ease, background 0.4s ease;
-} */
-
-/* The actual caution card */
-/* body.light-mode .caution-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #1a1e30;
-  color: #fff;
-  width: 30%;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  z-index: 901;
-} */
-
 body.light-mode .caution-icon {
   width: 2.813rem;
   height: 2.813rem;
   margin-bottom: 1.25rem;
-}
-
-/* Keep header visible above blur overlay */
-header {
-  position: relative;
-  z-index: 1000;
 }
 .btn::before {
   content: "";
@@ -106,9 +58,6 @@ body.light-mode .text-deco:hover {
 body.light-mode .h1-light-mode,
 body.light-mode .h2-light-mode {
   color: #1a1e30;
-}
-body.light-mode .h2-light-mode {
-  font-weight: 800;
 }
 a {
   text-decoration: none;
@@ -163,8 +112,12 @@ body.light-mode .btn-deco {
 }
 body.light-mode .btn-deco-sec {
   color: #1a1a1a;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(108, 92, 250, 0.502);
+}
+
+body.light-mode .btn-deco,
+body.light-mode .btn-deco-sec {
+  box-shadow: 0 0 30px 0 rgba(8, 0, 255, 0.25) inset;
 }
 .hero-section {
   display: flex;
@@ -221,7 +174,8 @@ body.light-mode .btn-deco-sec {
 }
 .btn-deco-sec {
   background-color: transparent;
-  border: 2px solid rgba(92, 124, 250, 0.5);
+  border: 1px solid rgba(92, 124, 250, 0.5);
+  box-shadow: 0 0 15px 0 rgba(59, 131, 246, 0.25) inset;
   transition: all 0.3s ease-in-out;
 }
 .btn-deco:hover {
@@ -292,8 +246,49 @@ body.light-mode .p-deco {
   font-size: 1rem;
 }
 /* card skills section */
+:root {
+  /* Light mode colors gradient */
+  --c--bg-purple-gradient: linear-gradient(
+    180deg,
+    rgba(230, 239, 255, 0.5) 0%,
+    rgba(247, 240, 255, 0.5) 100%
+  );
+  --c--bg-purple-shadow: 0 0 30px 5px rgba(195, 0, 255, 0.15) inset;
+  --c--purple-border: 1px solid #ebc2ff;
+  --c--purple-filter: drop-shadow(0px 0px 2.5px rgba(195, 0, 255, 0.15));
+  /* Blue */
+  --c--bg-blue-gradient: linear-gradient(
+    180deg,
+    rgba(237, 243, 255, 0.5) 0%,
+    rgba(224, 240, 255, 0.5) 100%
+  );
+  --c--bg-blue-shadow: 0 0px 30px 5px rgba(0, 146, 204, 0.15) inset;
+  --c--blue-border: 1px solid #8adeff;
+  --c--blue-filter: drop-shadow(0px 0px 2.5px rgba(0, 225, 255, 0.15));
+  /* Green  */
+  --c--bg-green-gradient: linear-gradient(
+    180deg,
+    rgba(239, 255, 244, 0.5) 0%,
+    rgba(192, 255, 224, 0.5) 100%
+  );
+  --c--bg--green-shadow: 0 0 30px 5px rgba(0, 255, 128, 0.15) inset;
+  --c--green-border: 1px solid #97ffd4;
+  --c--green-filter: drop-shadow(0px 0px 2.5px rgba(0, 255, 221, 0.15));
+
+  /* Dark mode colors gradient */
+  --dc--shadow-blue: 0px 0px 30px 0px rgba(29, 45, 117, 0.3) inset;
+  --dc--shadow-purple: 0px 0px 30px 0px rgba(89, 29, 117, 0.3) inset;
+  --dc--shadow-green: 0px 0px 30px 0px rgba(29, 117, 66, 0.3) inset;
+  /* Dark mode Filter */
+  --dc--blue-filter: drop-shadow(0px 0px 10px rgba(27, 49, 136, 0.25));
+  --dc--purple-filter: drop-shadow(0px 0px 10px rgba(81, 26, 93, 0.25));
+  --dc--green-filter: drop-shadow(0px 0px 10px rgba(0, 255, 225, 0.25));
+}
 .light-h3 {
   font-weight: 600;
+}
+.pt-2 {
+  padding-top: 1rem !important;
 }
 body.light-mode .tech-c-deco {
   color: #1a1e30;
@@ -301,34 +296,37 @@ body.light-mode .tech-c-deco {
   pointer-events: auto;
 }
 body.light-mode .card-1 {
-  border: 1px solid #5c7cfa;
-  background: linear-gradient(
-    180deg,
-    rgba(237, 243, 255, 0.5) 0%,
-    #e0f0ff 100%
-  );
+  border: var(--c--blue-border);
+  background: var(--c--bg-blue-gradient);
+  box-shadow: var(--c--bg-blue-shadow);
 }
 body.light-mode .card-2 {
-  border: 1px solid #a200c4;
-  background: linear-gradient(
-    180deg,
-    rgba(230, 239, 255, 0.5) 0%,
-    #f7f0ff 100%
-  );
+  border: var(--c--purple-border);
+  background: var(--c--bg-purple-gradient);
+  box-shadow: var(--c--bg-purple-shadow);
 }
 body.light-mode .card-3 {
-  border: 1px solid #2dd8c3;
-  background: linear-gradient(
-    180deg,
-    rgba(233, 241, 255, 0.5) 0%,
-    rgba(178, 255, 216, 0.25) 100%
-  );
+  border: var(--c--green-border);
+  background: var(--c--bg-green-gradient);
+  box-shadow: var(--c--bg--green-shadow);
 }
 body.light-mode .light-h3 {
   color: #1a1e30;
 }
 body.light-mode .card-h:hover {
   box-shadow: -7px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+body.light-mode .card-1:hover,
+body.light-mode .b-gradient {
+  filter: var(--c--blue-filter);
+}
+body.light-mode .card-2:hover,
+body.light-mode .p-gradient {
+  filter: var(--c--purple-filter);
+}
+body.light-mode .card-3:hover,
+body.light-mode .g-gradient {
+  filter: var(--c--green-filter);
 }
 .card-to-col {
   display: flex;
@@ -350,27 +348,30 @@ body.light-mode .card-h:hover {
 .card-1 {
   border: 1px solid #1b3188;
   background: rgba(0, 51, 255, 0.02);
+  box-shadow: var(--dc--shadow-blue);
 }
 .card-2 {
   border: 1px solid #54275d;
   background: rgba(162, 0, 196, 0.02);
+  box-shadow: var(--dc--shadow-purple);
 }
 .card-3 {
   border: 1px solid #346660;
   background: rgba(45, 216, 195, 0.02);
+  box-shadow: var(--dc--shadow-green);
 }
-/* Hover */
+/* Default Hover */
 .card-h:hover {
   transform: translateY(-3px);
 }
 .card-1:hover {
-  box-shadow: 0 0 20px 5px rgba(27, 49, 136, 0.5);
+  filter: var(--dc--blue-filter);
 }
 .card-2:hover {
-  box-shadow: 0 0px 20px 5px rgba(81, 26, 93, 0.5);
+  filter: var(--dc--purple-filter);
 }
 .card-3:hover {
-  box-shadow: 0 0px 20px 5px rgba(20, 83, 76, 0.25);
+  filter: var(--dc--green-filter);
 }
 .list-col li {
   margin-bottom: 1.25rem;
@@ -545,29 +546,19 @@ body.light-mode .p-card-deco:hover {
   box-shadow: -15px 21px 4px 0px rgba(0, 0, 0, 0.25);
 }
 body.light-mode .p-gradient {
-  background: linear-gradient(
-    90deg,
-    rgba(222, 215, 255, 0.5) 0%,
-    rgba(234, 243, 255, 0.5) 100%
-  );
-  border: 1px solid #a200c4;
+  border: var(--c--purple-border);
+  background: var(--c--bg-purple-gradient);
+  box-shadow: var(--c--bg-purple-shadow);
 }
 body.light-mode .b-gradient {
-  border-radius: 10px;
-  background: linear-gradient(
-    270deg,
-    rgba(206, 235, 255, 0.5) 0%,
-    rgba(234, 243, 255, 0.5) 100%
-  ) !important;
-  border: 1px solid var(--blue);
+  border: var(--c--blue-border);
+  background: var(--c--bg-blue-gradient) !important;
+  box-shadow: var(--c--bg-blue-shadow);
 }
 body.light-mode .g-gradient {
-  background: linear-gradient(
-    90deg,
-    rgba(192, 255, 219, 0.5) 0%,
-    rgba(234, 243, 255, 0.5) 100%
-  );
-  border: 1px solid var(--green);
+  border: var(--c--green-border);
+  background: var(--c--bg-green-gradient);
+  box-shadow: var(--c--bg--green-shadow);
 }
 body.light-mode .view-project-btn:hover {
   background-color: #726df2;
@@ -633,23 +624,26 @@ body.light-mode .view-project-btn:hover {
 .p-gradient {
   border: 1px solid #54275d;
   background: rgba(162, 0, 196, 0.02);
+  box-shadow: 0px 0px 30px 0px rgba(89, 29, 117, 0.3) inset;
 }
 .p-gradient:hover {
-  box-shadow: 0 0px 20px 5px rgba(81, 26, 93, 0.35);
+  filter: var(--dc--purple-filter);
 }
 .b-gradient {
   border: 1px solid #1b3188;
   background: rgba(0, 51, 255, 0.02);
+  box-shadow: var(--dc--shadow-blue);
 }
 .b-gradient:hover {
-  box-shadow: 0 0 20px 5px rgba(27, 49, 136, 0.5);
+  filter: var(--dc--blue-filter);
 }
 .g-gradient {
   border: 1px solid #346660;
   background: rgba(45, 216, 195, 0.02);
+  box-shadow: var(--dc--shadow-green);
 }
 .g-gradient:hover {
-  box-shadow: 0 0px 20px 5px rgba(20, 83, 76, 0.25);
+  filter: var(--dc--green-filter);
 }
 .mp-img {
   grid-row-end: 250px;
