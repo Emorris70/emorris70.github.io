@@ -286,7 +286,7 @@ body.light-mode .p-deco {
   /* Dark mode Filter */
   --dc--blue-filter: drop-shadow(0px 0px 10px rgba(27, 49, 136, 0.25));
   --dc--purple-filter: drop-shadow(0px 0px 10px rgba(81, 26, 93, 0.25));
-  --dc--green-filter: drop-shadow(0px 0px 10px rgba(0, 255, 225, 0.25));
+  --dc--green-filter: drop-shadow(0px 0px 10px rgba(24, 109, 99, 0.25));
 }
 .light-h3 {
   font-weight: 600;
