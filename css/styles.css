@@ -14,7 +14,9 @@ body {
   font-family: "Source Code Pro", monospace;
   background-color: #0d1117;
   color: #e6edf3;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   background-image: radial-gradient(#1a1a1a 1.5px, transparent 1px);
   background-size: 20px 20px;
 }
@@ -70,7 +72,8 @@ a {
 header {
   transition: all 300ms ease-in-out;
   background-color: rgba(13, 17, 23, 0.9);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
@@ -517,6 +520,28 @@ body.light-mode .g-gradient {
   margin-right: 5px;
   vertical-align: top;
 }
+.list-col #git-icon::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("../images/git-icon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+  vertical-align: top;
+}
+.list-col #github-icon::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("../images/github-logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+  vertical-align: top;
+}
 .list-col li:hover {
   background-color: rgba(33, 41, 51, 0.8);
   backdrop-filter: blur(14px);
@@ -755,7 +780,9 @@ body.light-mode .footer-e {
   justify-content: center;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s, opacity 0.3s ease;
+  transition:
+    visibility 0s,
+    opacity 0.3s ease;
 }
 
 .modal.show {

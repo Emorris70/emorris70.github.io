@@ -11,7 +11,6 @@ const init = () => {
   listDescription();
 };
 
-// Animation for the hero section
 const initTypedAnimations = () => {
   "use strict";
 
@@ -38,7 +37,6 @@ const initTypedAnimations = () => {
   });
 };
 
-// Stores saved theme
 const initTheme = () => {
   "use strict";
 
@@ -48,7 +46,7 @@ const initTheme = () => {
     document.body.classList.toggle("light-mode");
     localStorage.setItem(
       "theme",
-      document.body.classList.contains("light-mode") ? "light" : "dark"
+      document.body.classList.contains("light-mode") ? "light" : "dark",
     );
   });
 
@@ -56,7 +54,6 @@ const initTheme = () => {
   document.body.classList.toggle("light-mode", savedTheme === "light");
 };
 
-// handles pop up logic
 const listDescription = () => {
   const modal = document.getElementById("skillModal");
   const modalTitle = document.getElementById("modal-title");
@@ -77,12 +74,10 @@ const listDescription = () => {
     });
   });
 
-  // Closes the modal when the "x" button is clicked.
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("show");
   });
 
-  // Allows the user to click outside the modal to close it.
   window.addEventListener("click", event => {
     if (event.target === modal) {
       modal.classList.remove("show");
