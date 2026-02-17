@@ -55,6 +55,9 @@ const initTheme = () => {
 };
 
 const listDescription = () => {
+  "use strict";
+
+  
   const modal = document.getElementById("skillModal");
   const modalTitle = document.getElementById("modal-title");
   const modalDescription = document.getElementById("modal-description");
