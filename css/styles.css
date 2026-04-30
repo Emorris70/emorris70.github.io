@@ -1,6 +1,7 @@
 /* 
   Author - Emile Morris
 */
+
 html {
   scroll-behavior: smooth;
 }
@@ -624,6 +625,10 @@ body.light-mode .view-project-btn:hover {
   font-size: 0.875rem;
 }
 .view-project-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   background-color: #4180f5;
   color: black;
   border: none;
